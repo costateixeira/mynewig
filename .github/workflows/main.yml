@@ -45,7 +45,7 @@ jobs:
         
     - run: ls
     - name: stage changed files
-      run: git add ./README3.md
+      run: git add .
 
 
     - name: Deploy candidate
