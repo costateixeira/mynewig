@@ -1,10 +1,3 @@
-# This workflow reuses the openHIE GitHub action for building IGs
-# Initial idea by from Elliot Silver, available from: https://www.argentixinfo.com/archives/156
-# Change log:
-# v0.1.0
-# 2021-06-18: publish default branches to / , other branches branches/<branch>
-# 2021-11-26: reusable workflow
-
 name: CI
 
 # Controls when the action will run. 
@@ -21,6 +14,6 @@ jobs:
   # This workflow contains a single job called "build"
   call-update_readme:
     uses: costateixeira/ig-badges/.github/workflows/add_badges.yaml@main    
-  call_build: 
-    uses: openhie/empty-fhir-ig/.github/workflows/main.yml@master
+#  call_build: 
+#    uses: openhie/empty-fhir-ig/.github/workflows/main.yml@master
     
