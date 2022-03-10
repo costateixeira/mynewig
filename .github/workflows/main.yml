@@ -14,6 +14,11 @@ jobs:
   # This workflow contains a single job called "build"
   call-update_readme:
     uses: costateixeira/ig-badges/.github/workflows/update_readme.yaml@main    
-#  call_build: 
-#    uses: openhie/empty-fhir-ig/.github/workflows/main.yml@master
+    with:
+      token: costateixeira
+      repo: mynewig
+      branch: main
+      
+  call_build: 
+    uses: openhie/empty-fhir-ig/.github/workflows/main.yml@master
     
