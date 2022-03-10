@@ -1,0 +1,44 @@
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events for any main branch
+  push:
+    branches-ignore:    
+      - 'gh-pages'
+  pull_request:
+
+  workflow_dispatch:
+
+jobs:
+  # This workflow contains a single job called "build"
+  call-update_readme:
+    uses: costateixeira/ig-badges/.github/workflows/update_readme.yaml@main    
+    with:
+      token: costateixeira
+      repo: mynewig
+      branch: main
+ 
+    - run: ls
+    - name: stage changed files
+      run: git add .
+
+
+    - name: Deploy candidate
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+#        branch: ${GITHUB_REF##*/} # The branch the action should deploy to.
+        branch: main # The branch the action should deploy to.
+        folder: . # The folder the action should deploy.
+        commit-message: Deploy branch
+        target-folder: .
+        clean: false 
+
+      
+#  call_build: 
+#    uses: openhie/empty-fhir-ig/.github/workflows/main.yml@master
+
+ 
+    
+
+ 
