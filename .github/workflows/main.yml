@@ -24,6 +24,10 @@ jobs:
     name: Ubuntu VM
     runs-on: ubuntu-latest
     steps:
+    
+    - name: Getting latest Code
+      uses: actions/checkout@v2.3.2    
+    
     - name: wget
       uses: wei/wget@v1
       with:
