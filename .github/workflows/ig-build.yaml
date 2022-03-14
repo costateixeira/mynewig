@@ -62,9 +62,9 @@ jobs:
         
 #    - run: sed -e "s/xxxxx/$(<READMEX.md sed -e 's/[\&/]/\\&/g' -e 's/$/\\n/' | tr -d '\n')/g" -i README3.md > READMEXX.md
     - run: |
-        FILE2=$(<README3.md)
-        FILE1=$(<READMEX.md)
-        echo "${FILE2//xxxxx/$FILE1}" 
+        FILE2=$(<READMEX.md)
+        FILE1=$(<README3.md)
+        echo "${FILE2//xxxxx/$FILE1}" > READMEX.md
 
     - run: more READMEX.md
     - run: rm README_SRC.md
