@@ -66,6 +66,7 @@ jobs:
         FILE1=$(<README3.md)
         echo "${FILE2//xxxxx/$FILE1}" 
 
+    - run: more READMEX.md
     - run: rm README_SRC.md
     - run: ls
     - name: stage changed files
