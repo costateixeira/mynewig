@@ -60,8 +60,11 @@ jobs:
         sed -i -e "s|__GH_BRANCH__|${GITHUB_REF##*/}|g"         README3.md
         sed -i -e "s|__GH_REPO__|${GITHUB_REPOSITORY##*/}|g"    README3.md
         
-    - run: sed -e "s/xxxxx/$(<READMEX.md sed -e 's/[\&/]/\\&/g' -e 's/$/\\n/' | tr -d '\n')/g" -i README3.md > READMEXX.md
-
+#    - run: sed -e "s/xxxxx/$(<READMEX.md sed -e 's/[\&/]/\\&/g' -e 's/$/\\n/' | tr -d '\n')/g" -i README3.md > READMEXX.md
+    - run: |
+        FILE2=$(<READMEX.md)
+        FILE1=$(<README3.md)
+        echo "${FILE2//xxxxx/$FILE1}" 
 
     - run: rm README_SRC.md
     - run: ls
