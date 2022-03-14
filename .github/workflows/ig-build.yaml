@@ -60,7 +60,7 @@ jobs:
         sed -i -e "s|__GH_BRANCH__|${GITHUB_REF##*/}|g"         README3.md
         sed -i -e "s|__GH_REPO__|${GITHUB_REPOSITORY##*/}|g"    README3.md
         
-    - run: sed -i -e "s/xxxxx/$(cat READMEX.md)/" README3.md > READMEXX.md
+    - run: sed -i -e "s/xxxxx/$(sed 's:/:\\/:g' READMEX.md)/" README3.md > READMEXX.md
 
 
     - run: rm README_SRC.md
