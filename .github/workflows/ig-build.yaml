@@ -13,7 +13,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   call-update_readme:
-#    uses: costateixeira/ig-badges/.github/workflows/add_badges_commit.yaml@main    
+    uses: costateixeira/ig-badges/.github/workflows/add_badges.yaml@main    
 #    with:
 #      token: costateixeira
 #      repo: mynewig
@@ -40,47 +40,47 @@ jobs:
 
  ############################################
  
-    name: Ubuntu VM
-    runs-on: ubuntu-latest
-    steps:
-    - name: Getting latest Code
-      uses: actions/checkout@v2.3.2
-      
-    - name: wget
-      uses: wei/wget@v1
-      with:
-        args: -O README_SRC.md https://raw.githubusercontent.com/costateixeira/ig-badges/main/README_SRC.md    
-      
-    - name: Create readme
-      run: cp README_SRC.md README3.md
-
-    - name: Replace text
-      run: |
-        sed -i -e "s|__GH_OWNER__|${GITHUB_REPOSITORY_OWNER}|g" README3.md
-        sed -i -e "s|__GH_BRANCH__|${GITHUB_REF##*/}|g"         README3.md
-        sed -i -e "s|__GH_REPO__|${GITHUB_REPOSITORY##*/}|g"    README3.md
-        
+#    name: Ubuntu VM
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Getting latest Code
+#      uses: actions/checkout@v2.3.2
+#      
+#    - name: wget
+#      uses: wei/wget@v1
+#      with:
+#        args: -O README_SRC.md https://raw.githubusercontent.com/costateixeira/ig-badges/main/README_SRC.md    
+#      
+#    - name: Create readme
+#      run: cp README_SRC.md README3.md
+#
+#    - name: Replace text
+#      run: |
+#        sed -i -e "s|__GH_OWNER__|${GITHUB_REPOSITORY_OWNER}|g" README3.md
+#        sed -i -e "s|__GH_BRANCH__|${GITHUB_REF##*/}|g"         README3.md
+#        sed -i -e "s|__GH_REPO__|${GITHUB_REPOSITORY##*/}|g"    README3.md
+#        
 #    - run: sed -e "s/xxxxx/$(<READMEX.md sed -e 's/[\&/]/\\&/g' -e 's/$/\\n/' | tr -d '\n')/g" -i README3.md > READMEXX.md
-    - run: |
-        FILE2=$(<READMEX.md)
-        FILE1=$(<README3.md)
-        echo "${FILE2//xxxxx/$FILE1}" > READMEX.md
+#    - run: |
+#        FILE2=$(<READMEX.md)
+#        FILE1=$(<README3.md)
+#        echo "${FILE2//xxxxx/$FILE1}" > READMEX.md
+#
+#    - run: more READMEX.md
+#    - run: rm README_SRC.md
+#    - run: ls
+#    - name: stage changed files
+#      run: git add .
 
-    - run: more READMEX.md
-    - run: rm README_SRC.md
-    - run: ls
-    - name: stage changed files
-      run: git add .
 
-
-    - name: Deploy candidate
-      uses: JamesIves/github-pages-deploy-action@4.1.4
-      with:
+#    - name: Deploy candidate
+#      uses: JamesIves/github-pages-deploy-action@4.1.4
+#      with:
 #        branch: ${GITHUB_REF##*/} # The branch the action should deploy to.
-        branch: main # The branch the action should deploy to.
-        folder: . # The folder the action should deploy.
-        commit-message: Deploy branch
-        target-folder: .
-        clean: false     
+#        branch: main # The branch the action should deploy to.
+#        folder: . # The folder the action should deploy.
+#        commit-message: Deploy branch
+#        target-folder: .
+#        clean: false     
 
  
