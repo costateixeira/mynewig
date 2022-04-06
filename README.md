@@ -1,5 +1,11 @@
 <!--badges-->
- 
+### IG Status
+![qa-errs](https://img.shields.io/github/workflow/status/costateixeira/mynewig/ig-build?label=Build%20status)
+
+![issues](https://img.shields.io/github/issues/costateixeira/mynewig)
+![qa-errs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/costateixeira/mynewig/main/status/qa-errs.json)
+![qa-errs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/costateixeira/mynewig/main/status/qa-warns.json)
+
 <!--/badges-->
 
 Empty IG
